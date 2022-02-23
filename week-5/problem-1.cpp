@@ -39,7 +39,7 @@ public:
         }
         else
         {
-            for (int i = 0; i <= top; i++)
+            for (int i = top; i >= 0; i--)
             {
                 int x = stack[i];
                 cout << x << endl;
