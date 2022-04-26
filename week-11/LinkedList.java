@@ -1,3 +1,4 @@
+import java.net.DatagramSocketImplFactory;
 
 class Node {
     public int data;
@@ -38,38 +39,43 @@ public class LinkedList {
 
     }
 
-    public void oddElement() {
+    public void sort() {
         if (start == null) {
             System.out.println("No element added");
             return;
         }
         Node current = start;
         while (current != null) {
-            if (current.data % 2 == 0) {
-                System.out.print(current.data + "-> ");
+            if(current.next == null){
+                break;
             }
+            if (current.data > current.next.data) {
+                int temp = current.data;
+                current.data = current.next.data;
+                current.next.data = temp;
+            }
+            // System.out.print(current.data + "-> ");
             current = current.next;
-
         }
+        System.out.println("null");
     }
-    public void InsertAtStart(int el){
+
+    public void InsertAtStart(int el) {
         Node current = new Node();
         current.data = el;
         current.next = start;
-        start=current;
-    } 
+        start = current;
+    }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.create_end(1);
-        list.create_end(2);
-        list.create_end(3);
-        list.create_end(4);
         list.create_end(5);
-        list.create_end(6);
-        list.create_end(7);
-        // list.oddElement();
-        list.InsertAtStart(49);
+        list.create_end(4);
+        list.create_end(3);
+        list.create_end(2);
+        list.create_end(1);
+        // list.display();
+        list.sort();
         list.display();
     }
 }

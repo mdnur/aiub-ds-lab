@@ -36,20 +36,58 @@ public:
             end = current;
         }
     }
-    void display(){
+    void display()
+    {
         if (start == NULL)
         {
             cout << "NO element found" << endl;
-            return ;
+            return;
         }
-        
+
         Node *current = start;
-        while (current !=NULL)
+        while (current != NULL)
         {
             cout << current->data << "->";
             current = current->next;
         }
-        cout << "NUll";   
+        cout << "NUll";
+    }
+
+    void PreOrder(Node *root1)
+    {
+        if (root == NULL)
+        {
+            return;
+        }
+        cout << root->data << " ";
+        PreOrder(root->left);
+        PreOrder(root->right);
+    }
+    void postOrder(Node *root1)
+    {
+    }
+    void inOrder(Node *root1)
+    {
+    }
+    bool Search(Node *root, int data)
+    {
+        if (root == NULL)
+        {
+            cout << "Error: tree is empty" << endl;
+            return false;
+        }
+        else if (root->data == data)
+        {
+            return true;
+        }
+        else if (data <= root->data)
+        {
+            return Search(root->left, data);
+        }
+        else
+        {
+            return Search(root->right, data);
+        }
     }
 };
 
